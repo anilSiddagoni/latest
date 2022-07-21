@@ -1,0 +1,56 @@
+<div>
+    <br>
+    <br>
+    <form name="forms2" #forms2="ngForm" (ngSubmit)=" forms2.invalid || addEmployee(forms2)">
+        <table border="1" [cellPadding]="10" [cellSpacing]="0">
+            <tr>
+                <td>Employee Number</td>
+                <td>
+                    <input type="text" name="empNumber" #empNumber="ngModel" [(ngModel)]="employee.empNumber" required><br>
+                    <span *ngIf="(empNumber.invalid && empNumber.touched || empNumber.invalid && forms2.submitted)">Employee Number is Mandatory</span><br>
+                    
+                </td>
+            </tr>
+            <tr>
+                <td>Employee Name</td>
+                <td>
+                    <input type="text" name="empName" #empName="ngModel" [(ngModel)]="employee.empName" required><br>
+                    <span *ngIf="(empName.invalid && empName.touched || empName.invalid && forms2.submitted)">Employee Name is Mandatory</span>
+                  
+                </td>
+            </tr>
+            <tr>
+                <td>Employee salary</td>
+                <td>
+                    <input type="text" name="empSalary" #empSalary="ngModel" [(ngModel)]="employee.empSalary" required><br>
+                    <span *ngIf="(empSalary.invalid && empSalary.touched || empSalary.invalid && forms2.submitted)">Employee salary is Mandatory</span>
+                    
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="submit" value="submit">
+                </td>
+            </tr>
+
+
+
+        </table>
+    </form>
+    <br>
+    <br>
+    <table border="1" [cellPadding]="10" [cellSpacing]="0">
+        <tr>
+            <th>Emp Number</th>
+            <th>Emp Name</th>
+            <th>Emp salary</th>
+        </tr>
+        <tr *ngFor="let emp of employees">
+            <td>{{emp.empNumber}}</td>
+            <td>{{emp.empName}}</td>
+            <td>{{emp.empSalary}}</td>
+
+        </tr>
+    </table>
+</div>
